@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TapEarn Energy</title>
 
-<!-- Metaetiqueta de verificación de AdSense -->
-<meta name="google-adsense-account" content="ca-pub-9409196863615507">
+<!-- Código de verificación y anuncios de AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9409196863615507"
+     crossorigin="anonymous"></script>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
@@ -101,7 +102,6 @@
     text-shadow: 0 0 5px #00fffc;
   }
 
-  /* Contenedor para anuncios */
   .ad-container {
     width: 80%;
     margin: 20px auto;
@@ -122,7 +122,7 @@
 
 <!-- Contenedor para anuncios -->
 <div class="ad-container">
-  <p style="color:#00fffc;">Aquí aparecerán tus anuncios cuando agregues el código de AdSense.</p>
+  <p style="color:#00fffc;">Aquí aparecerán tus anuncios cuando completes la barra.</p>
 </div>
 
 <div class="flash" id="flash"></div>
@@ -145,13 +145,23 @@ tapBtn.addEventListener('click', () => {
     bar.textContent = energy + '%';
     pointsDisplay.textContent = 'Puntos: ' + points;
 
-    // Efecto flash
     flash.classList.add('active');
     setTimeout(() => flash.classList.remove('active'), 300);
 
-    // Barra completada
     if (energy === 100) {
-        alert('¡BARRA COMPLETADA! Aquí aparecerá un anuncio de AdSense.');
+        const adContainer = document.querySelector('.ad-container');
+        adContainer.innerHTML = `
+            <!-- Aquí pegarás tu anuncio real de AdSense cuando te aprueben -->
+            <ins class="adsbygoogle"
+                 style="display:block; text-align:center;"
+                 data-ad-client="ca-pub-9409196863615507"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        `;
         energy = 0;
         bar.style.width = '0%';
         bar.textContent = '0%';
