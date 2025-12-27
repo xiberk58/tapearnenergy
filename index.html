@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TapEarn Energy</title>
+
+<!-- Metaetiqueta de verificación de AdSense -->
+<meta name="google-adsense-account" content="ca-pub-9409196863615507">
+
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
@@ -96,6 +100,13 @@
     color: #00fffc;
     text-shadow: 0 0 5px #00fffc;
   }
+
+  /* Contenedor para anuncios */
+  .ad-container {
+    width: 80%;
+    margin: 20px auto;
+    text-align: center;
+  }
 </style>
 </head>
 <body>
@@ -108,6 +119,11 @@
 <button class="tap-button" id="tapBtn">TOCA AQUÍ</button>
 
 <div class="points" id="points">Puntos: 0</div>
+
+<!-- Contenedor para anuncios -->
+<div class="ad-container">
+  <p style="color:#00fffc;">Aquí aparecerán tus anuncios cuando agregues el código de AdSense.</p>
+</div>
 
 <div class="flash" id="flash"></div>
 
@@ -129,13 +145,13 @@ tapBtn.addEventListener('click', () => {
     bar.textContent = energy + '%';
     pointsDisplay.textContent = 'Puntos: ' + points;
 
-    // Flash effect
+    // Efecto flash
     flash.classList.add('active');
     setTimeout(() => flash.classList.remove('active'), 300);
 
-    // Energía completa
+    // Barra completada
     if (energy === 100) {
-        alert('¡BARRA COMPLETADA! Un anuncio aparecería aquí.');
+        alert('¡BARRA COMPLETADA! Aquí aparecerá un anuncio de AdSense.');
         energy = 0;
         bar.style.width = '0%';
         bar.textContent = '0%';
